@@ -1,0 +1,117 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0; padding: 0;
+}
+
+body {
+  min-height: 100%;
+  background: url("../img/todd-diemer-160708.jpg") no-repeat 0 0/cover;
+}
+
+
+.snow {
+  overflow: hidden;
+  position: absolute;
+  inset: 0;
+}
+
+.snow .snow__layer {
+  animation: wind 5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+  perspective: 100px;
+  position: absolute; left: -100px; right: -100px;
+  transform: translateX(-50px);
+}
+
+.snow .snow__fall {
+  animation: fall 10s linear infinite;
+  background: url("../img/snow-light.png");
+  height: 2000px;
+  position: absolute; top: 0; left: 0; right: 0;
+}
+
+.snow__layer:nth-child(1) {
+  animation-duration: 35s;
+}
+
+.snow__layer:nth-child(1) .snow__fall {
+          animation-name: fallblur;
+  background: url("../img/snow-blur.png");
+  left: -2000px;
+          transform: translateZ(25px);
+  width: 4000px;
+}
+
+.snow__layer:nth-child(2) {
+          animation: wind 5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+}
+
+.snow__layer:nth-child(2) .snow__fall {
+          animation-duration: 25s;
+  background: url("../img/snow-medium.png");
+}
+
+.snow__fall:nth-child(3) {
+          animation-duration: 10s;
+  background-size: 250px;
+}
+
+.snow__fall:nth-child(2) {
+          animation-duration: 20s;
+  background-size: 500px;
+}
+
+.snow__layer:nth-child(4) .snow__fall {
+          animation-duration: 5s;
+          transform: translateZ(50px);
+          animation-name: falllight;
+}
+
+@-webkit-keyframes fall {
+  from {
+            transform: translateY(-1000px);
+  }
+}
+
+@keyframes fall {
+  from {
+            transform: translateY(-1000px);
+  }
+}
+
+@-webkit-keyframes falllight {
+  from {
+            transform: translateY(-1000px) translateZ(50px);
+  }
+}
+
+@keyframes falllight {
+  from {
+            transform: translateY(-1000px) translateZ(50px);
+  }
+}
+
+@-webkit-keyframes fallblur {
+  from {
+            transform: translateY(-1000px) translateZ(25px);
+  }
+}
+
+@keyframes fallblur {
+  from {
+            transform: translateY(-1000px) translateZ(25px);
+  }
+}
+
+@-webkit-keyframes wind {
+  to {
+            transform: translateX(50px);
+  }
+}
+
+@keyframes wind {
+  to {
+            transform: translateX(50px);
+  }
+}
